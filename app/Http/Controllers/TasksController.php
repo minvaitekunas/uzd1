@@ -18,8 +18,10 @@ class TasksController extends Controller
         $tasks = \App\Models\tasks::where('status_id', $request->status_id)->orderBy('created_at')->get();
     else
         $tasks = \App\Models\tasks::orderBy('created_at')->get();
-    $statuses = \App\Models\status::orderBy('name')->get();
-    return view('tasks.index', ['tasks' => $tasks, 'statuses' => $statuses]);
+
+        
+        $statuses = \App\Models\status::orderBy('name')->get();
+        return view('tasks.index', ['tasks' => $tasks, 'statuses' => $statuses]);
 
     }
 
@@ -45,8 +47,7 @@ class TasksController extends Controller
     public function store(Request $request)
     {
         $task = new tasks();
-        // can be used for seeing the insides of the incoming request
-        // dd($request->all());;
+  
         $task->fill($request->all());
         $task->save();
         return redirect()->route('tasks.index');
@@ -70,10 +71,10 @@ class TasksController extends Controller
      * @param  \App\Models\tasks  $tasks
      * @return \Illuminate\Http\Response
      */
-    public function edit(tasks $tasks)
+    public function edit(tasks $task)
     {
-        $statuses = \App\Models\tasks::orderBy('created_at')->get();
-        return view('tasks.edit', ['tasks' => $tasks, 'statuses' => $statuses]);
+        $statuses = \App\Models\status::orderBy('name')->get();
+        return view('tasks.edit', ['task' => $task, 'statuses' => $statuses]);
 
     }
 

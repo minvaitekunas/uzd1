@@ -1,3 +1,4 @@
+
 @extends('layouts.app')
 @section('content')
 <div class="container">
@@ -14,17 +15,23 @@
                         </div>
                         <div class="form-group">
                             <label>Aprašymas: </label>
-                            <input type="text" name="task_description" class="form-control"> 
-                        </div>
-                        <div class="form-group">
-                            <label for="start">Sukurta: </label>
-                            <input type="data" name="created_at" class="form-control" value="2018-07-23"
-                            min="2021-01-01" max="2021-12-31">
+                            <input type="text" id="mce" name="task_description" class="form-control"> 
                         </div>
                         {{-- <div class="form-group">
-                            <label>Pabaigta: </label>
-                            <input type="text" name="updated_at" class="form-control"> 
+                            <label>Sukurta: </label>
+                            <input type="data" name="created_at" class="form-control"> 
                         </div> --}}
+                        {{-- <div class="form-group">
+                            <label>Pabaigta: </label>
+                            <input type="data" name="updated_at" class="form-control"> 
+                        </div> --}}
+                         <div class="form-group">
+                            <label for="start">Pabaigti iki:</label>
+
+                            <input type="date" id="start" name="trip-start"
+                                value="2021-08-23"
+                                min="2021-08-23" max="2021-12-31"> 
+                        </div>
                         <div class="form-group">
                             <label>Statusas: </label>
                             <select name="status_id" id="" class="form-control">

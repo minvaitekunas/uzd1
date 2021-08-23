@@ -6,7 +6,7 @@
             <option value="" selected disabled>Pasirinkite statusą filtravimui:</option>
             @foreach ($statuses as $status)
             <option value="{{ $status->id }}" 
-                @if($status->id == app('request')->input('status_id')) 
+                @if($status->id == app('request')->input('name')) 
                     selected="selected" 
                 @endif>{{ $status->name }}</option>
             @endforeach
@@ -31,10 +31,10 @@
         @foreach ($tasks as $task)
         <tr>
             <td>{{ $task->task_name }}</td>
-            <td>{{ $task->task_description }}</td>
-            <td>{{ $task->status->name }}</td>
+            <td>{!! $task->task_description !!}</td>
             <td>{{ $task->created_at }}</td>
-            <td>{{ $task->updated_at }}</td>
+            <td>{{ $task->completed_at }}</td>
+            <td>{{ $status->name }}</td>
             <td>
                 <form action={{ route('tasks.destroy', $task->id) }} method="POST">
                     <a class="btn btn-success" href={{ route('tasks.edit', $task->id) }}>Redaguoti</a>

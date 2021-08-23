@@ -18,7 +18,7 @@ class CreateTasksTable extends Migration
             $table->string('task_name', 128);
             $table->text('task_description');
             $table->bigInteger('status_id')->unsigned();
-            $table->foreign('status_id')->references('id')->on('statuses');
+            $table->foreign('status_id')->references('id')->on('statuses')->onDelete('cascade');
             $table->timestamps();
      
            

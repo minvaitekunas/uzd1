@@ -14,12 +14,12 @@
                         </div>
                         <div class="form-group">
                             <label>Aprašymas: </label>
-                            <input type="text" name="task_description" class="form-control" value="{{ $task->task_description }}"> 
+                            <input id="mce"type="text" name="task_description" class="form-control" value="{{ $task->task_description }}"> 
                         </div>
                         <div class="form-group">
-                            <label>Sukurta: </label>
+                            {{-- <label>Sukurta: </label>
                             <input type="text" name="created_at" class="form-control" value="{{ $task->created_at }}"> 
-                        </div>
+                        </div> --}}
                         <div class="form-group">
                             <label>Pabaigta: </label>
                             <input type="text" name="updated_at" class="form-control" value="{{ $task->updated_at }}"> 
