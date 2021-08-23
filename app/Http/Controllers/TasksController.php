@@ -46,6 +46,7 @@ class TasksController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,['task_name' => 'required']);
         $task = new tasks();
   
         $task->fill($request->all());

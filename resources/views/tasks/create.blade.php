@@ -9,6 +9,9 @@
                <div class="card-body">
                    <form action="{{ route('tasks.store') }}" method="POST">
                         @csrf
+                        @if($errors->any())
+                        <h4 style="color: red">{{$errors->first()}}</h4>
+                        @endif
                         <div class="form-group">
                             <label>Užduotis: </label>
                             <input type="text" name="task_name" class="form-control">

@@ -36,12 +36,16 @@
             <td>{{ $task->completed_at }}</td>
             <td>{{ $status->name }}</td>
             <td>
+                @auth
+                    
+               
                 <form action={{ route('tasks.destroy', $task->id) }} method="POST">
                     <a class="btn btn-success" href={{ route('tasks.edit', $task->id) }}>Redaguoti</a>
                     @csrf @method('delete')
                     <input type="submit" class="btn btn-danger" value="Trinti"/>
                 </form>
             </td>
+            @endauth
         </tr>
         @endforeach
     </table>

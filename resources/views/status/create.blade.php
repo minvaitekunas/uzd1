@@ -8,6 +8,9 @@
                <div class="card-body">
                    <form action="{{ route('status.store') }}" method="POST">
                        @csrf
+                       @if($errors->any())
+                       <h4 style="color: red">{{$errors->first()}}</h4>
+                       @endif
                        <div class="form-group">
                            <label>Pavadinimas: </label>
                            <input type="text" name="name" class="form-control">

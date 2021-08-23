@@ -15,13 +15,15 @@ use Illuminate\Support\Facades\Auth;
 */
 
 Route::get('/', function () {
-    return view('welcome');
+    return view('tasks.index');
 });
 
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+Route::middleware(['auth'])->group(function () {
 
 Route::resource('tasks', App\Http\Controllers\TasksController::class);
 Route::resource('status', App\Http\Controllers\StatusController::class);
+});
 

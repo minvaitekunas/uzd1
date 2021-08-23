@@ -36,9 +36,8 @@ class StatusController extends Controller
      */
     public function store(Request $request)
     {
+        $this->validate($request,['name' => 'required']); 
         $status = new status();
-        // can be used for seeing the insides of the incoming request
-            // dd($request->all()); die();
            $status->fill($request->all());
            $status->save();
            return redirect()->route('status.index');

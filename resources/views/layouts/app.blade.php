@@ -36,8 +36,17 @@
                 <div class="collapse navbar-collapse" id="navbarSupportedContent">
                     <!-- Left Side Of Navbar -->
                     <ul class="navbar-nav mr-auto">
-
+                        @auth
+                        <li class="nav-item">
+                            <a href="{{ route('status.index') }}" class="nav-link">Statusai</a>
+                        </li>
+                        <li class="nav-item">
+                            <a href="{{ route('tasks.index') }}" class="nav-link">Užduotys</a>
+                        </li>
+                     
+                        @endauth
                     </ul>
+
 
                     <!-- Right Side Of Navbar -->
                     <ul class="navbar-nav ml-auto">
